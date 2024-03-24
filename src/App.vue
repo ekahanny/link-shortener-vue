@@ -2,7 +2,7 @@
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
-        <div class="card mt-5">
+        <div class="card my-4 border border-info">
           <div class="card-body p-5">
             <h1 class="text-center mb-3">URL Shortener</h1>
             <p id="desc" class="text-center fst-italic mb-4">
@@ -12,6 +12,12 @@
             <UserInput />
           </div>
         </div>
+
+        <div class="card bg-primary-subtle border border-dark-subtle">
+          <div class="card-body pt-4 ps-5 pb-3">
+            <ShortenURL />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -19,11 +25,13 @@
 
 <script>
 import UserInput from "./components/UserInput.vue";
+import ShortenURL from "./components/ShortenURL.vue";
 
 export default {
   name: "App",
   components: {
     UserInput,
+    ShortenURL,
   },
 };
 </script>
@@ -37,9 +45,5 @@ h1 {
 #desc {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-}
-
-button {
-  background-color: rgb(69, 116, 216);
 }
 </style>
