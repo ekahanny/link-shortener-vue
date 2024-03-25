@@ -14,7 +14,6 @@
               The modern, advanced, and privacy-aware URL Shortener built with
               Vue & Bootstrap
             </p>
-            <!-- @emitSubmitForm="handleSubmitForm" -->
             <UserInput @emitShortenedURL="handleShortenedURL" />
           </div>
         </div>
