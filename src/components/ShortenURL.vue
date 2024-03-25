@@ -1,8 +1,12 @@
+p
 <template>
   <div>
     <h4>Shortened URL</h4>
-    <div class="flex-container d-flex align-items-baseline">
-      <p class="mt-2">http://localhost:8080/</p>
+    <div
+      class="flex-container d-flex align-items-baseline"
+      v-if="URL && URL.link"
+    >
+      <p class="">{{ URL.link }}</p>
       <font-awesome-icon class="icon ms-2" icon="fa-solid fa-copy" />
     </div>
   </div>
@@ -11,8 +15,12 @@
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
+  name: "ShortenURL",
   components: {
     FontAwesomeIcon,
+  },
+  props: {
+    URL: Object,
   },
 };
 </script>

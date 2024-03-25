@@ -4,18 +4,23 @@
       <div class="col col-xl-10">
         <div class="card my-4 border border-info">
           <div class="card-body p-5">
-            <h1 class="text-center mb-3">URL Shortener</h1>
+            <h1
+              class="text-center mb-3"
+              style="font-weight: 700; color: rgb(69, 116, 216)"
+            >
+              URL Shortener
+            </h1>
             <p id="desc" class="text-center fst-italic mb-4">
               The modern, advanced, and privacy-aware URL Shortener built with
               Vue & Bootstrap
             </p>
-            <UserInput />
+            <UserInput @emitSubmitForm="handleSubmitForm" />
           </div>
         </div>
 
         <div class="card bg-primary-subtle border border-dark-subtle">
           <div class="card-body pt-4 ps-5 pb-3">
-            <ShortenURL />
+            <ShortenURL :URL="URL" />
           </div>
         </div>
       </div>
@@ -33,15 +38,21 @@ export default {
     UserInput,
     ShortenURL,
   },
+  data() {
+    return {
+      URL: {},
+    };
+  },
+  methods: {
+    handleSubmitForm: function (URL) {
+      this.URL = URL;
+      console.log(URL);
+    },
+  },
 };
 </script>
 
 <style>
-h1 {
-  font-weight: 700;
-  color: rgb(69, 116, 216);
-}
-
 #desc {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
