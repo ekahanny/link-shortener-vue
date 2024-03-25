@@ -27,9 +27,29 @@ export default {
   },
   methods: {
     submit: function () {
-      this.$emit("emitSubmitForm", {
-        link: this.link,
-      });
+      const longURL = this.link;
+      const requestBody = {
+        long_url: longURL,
+      };
+
+      fetch("https://api-ssl.bitly.com/v4/shorten", {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer 84bd16d1579d48609bca8e04ef7d2dbc40d370ab",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.link) {
+            this.$emit("emitShortenedURL", data.link);
+          } else {
+            console.error("Error shortening URL: ", data);
+          }
+        })
+        .catch((error) => console.error("Error fetching Bitly API: ", error));
+
       this.link = "";
     },
   },

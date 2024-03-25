@@ -14,7 +14,8 @@
               The modern, advanced, and privacy-aware URL Shortener built with
               Vue & Bootstrap
             </p>
-            <UserInput @emitSubmitForm="handleSubmitForm" />
+            <!-- @emitSubmitForm="handleSubmitForm" -->
+            <UserInput @emitShortenedURL="handleShortenedURL" />
           </div>
         </div>
 
@@ -44,9 +45,8 @@ export default {
     };
   },
   methods: {
-    handleSubmitForm: function (URL) {
-      this.URL = URL;
-      console.log(URL);
+    handleShortenedURL(shortenedURL) {
+      this.URL = { link: shortenedURL };
     },
   },
 };
