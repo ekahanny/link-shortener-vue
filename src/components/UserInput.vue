@@ -7,7 +7,7 @@
       <input
         type="text"
         id="addURL"
-        class="form-control border-primary-subtle"
+        class="form-control border border-primary"
         placeholder="Enter the URL"
         required
         v-model="link"
